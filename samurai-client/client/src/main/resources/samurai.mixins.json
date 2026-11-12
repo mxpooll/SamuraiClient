@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "gg.samurai.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MinecraftMixin",
+    "MouseHandlerMixin",
+    "GameRendererMixin",
+    "OptionInstanceAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
