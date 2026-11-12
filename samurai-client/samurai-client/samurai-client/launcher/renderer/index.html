@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:" />
+  <title>Samurai Client</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" id="bg"></div>
+  <div class="petals" id="petals"></div>
+
+  <header class="titlebar">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" fill="none" stroke="#c8102e" stroke-width="2"/>
+        <circle cx="16" cy="16" r="6" fill="#c8102e"/>
+      </svg>
+      <span>SAMURAI <b>CLIENT</b></span>
+    </div>
+    <div class="win-controls">
+      <button id="btn-min" title="Minimize">&#8211;</button>
+      <button id="btn-close" title="Close">&#10005;</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <button class="nav active" data-page="play">Play</button>
+      <button class="nav" data-page="accounts">Accounts</button>
+      <button class="nav" data-page="settings">Settings</button>
+      <div class="spacer"></div>
+      <div class="update" id="update" hidden></div>
+      <div class="ver">v0.1.0</div>
+    </nav>
+
+    <main>
+      <section class="page active" id="page-play">
+        <div class="hero">
+          <h1>SAMURAI<span>CLIENT</span></h1>
+          <p class="tag">Discipline. Precision. Victory.</p>
+        </div>
+        <div class="play-bar">
+          <div class="who" id="who">Not signed in</div>
+          <select id="version"></select>
+          <button class="launch" id="btn-launch">LAUNCH</button>
+        </div>
+        <div class="progress" id="progress" hidden>
+          <div class="bar"><i id="bar-fill"></i></div>
+          <div class="status" id="status"></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-accounts">
+        <h2>Accounts</h2>
+        <div id="account-list" class="cards"></div>
+        <button class="primary" id="btn-login">+ Sign in with Microsoft</button>
+      </section>
+
+      <section class="page" id="page-settings">
+        <h2>Settings</h2>
+        <label>Minimum RAM: <b id="ramMinLabel"></b>
+          <input type="range" id="ramMin" min="512" step="256" />
+        </label>
+        <label>Maximum RAM: <b id="ramMaxLabel"></b>
+          <input type="range" id="ramMax" min="1024" step="256" />
+        </label>
+        <label>JVM arguments
+          <input type="text" id="jvmArgs" placeholder="-XX:+UseG1GC" />
+        </label>
+        <label class="row"><input type="checkbox" id="fullscreen" /> Launch fullscreen</label>
+        <label>Background
+          <select id="background">
+            <option value="default">Torii Night (default)</option>
+            <option value="ember">Ember Red</option>
+            <option value="ink">Ink Black</option>
+            <option value="mist">Mountain Mist</option>
+          </select>
+        </label>
+        <button id="btn-gamedir">Open game folder</button>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
